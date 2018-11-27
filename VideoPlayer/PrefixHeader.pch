@@ -18,6 +18,8 @@
 
 #ifdef __OBJC__
 
+#import <UIKit/UIKit.h>
+
 #import "AppMode.h"
 #import "Masonry.h"
 

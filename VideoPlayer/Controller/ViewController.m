@@ -25,7 +25,7 @@
     CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
     
-    NSArray *arr = @[@"示例播放",@"本地播放", @"在线播放"];
+    NSArray *arr = @[@"示例播放",@"本地播放", @"在线播放", @"IJKPlayer"];
     
     for (int i = 0; arr.count > i; i++) {
         UIButton *btn = [self creatButtonAction:@selector(buttonAction:) Titile:arr[i]];
@@ -40,14 +40,32 @@
 
 - (void)buttonAction:(UIButton *)btn
 {
-    if (btn.tag == 0) {
-        [self pushVideoPlayerControllerForPlayerPath:[[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"] ForTitle:@"示例"];
-    } else if (btn.tag == 1) {
-        [self getUserVideo];
-    } else {
-        PlayListViewController *listVC = [[PlayListViewController alloc] init];
-        [self.navigationController pushViewController:listVC animated:YES];
+  switch (btn.tag) {
+    case 0:{
+      [self pushVideoPlayerControllerForPlayerPath:[[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"] ForTitle:@"示例"];
     }
+      break;
+    case 1:{
+      [self getUserVideo];
+    }
+      break;
+    case 2:{
+      PlayListViewController *listVC = [[PlayListViewController alloc] init];
+      listVC.isIJKPlayer = NO;
+      [self.navigationController pushViewController:listVC animated:YES];
+    }
+      break;
+    case 3:{
+      PlayListViewController *listVC = [[PlayListViewController alloc] init];
+      listVC.isIJKPlayer = YES;
+      [self.navigationController pushViewController:listVC animated:YES];
+    }
+      break;
+    default:
+      break;
+  }
+  
+  
 }
 
 

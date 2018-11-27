@@ -1,0 +1,65 @@
+一. 编译环境准备
+  1.安装 homebrew，git，yasm
+    命令行：
+         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+         brew install git
+         brew install yasm
+  2.获取ijkplayer
+    git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-ios
+    cd ijkplayer-ios
+    git checkout -B latest k0.8.8
+  3.配置编码器格式支持
+    默认为最少支持, 如果足够你使用, 可以跳过这一步. 否则可以改为以下配置:
+    module-default.sh 更多的编解码器/格式
+    module-lite-hevc.sh 较少的编解码器/格式(包括hevc)
+    module-lite.sh 较少的编解码器/格式(默认情况)
+    # 进入 config 目录
+    cd config
+
+    # 删除当前的 module.sh 文件
+    rm module.sh
+
+    # 可根据需要替换为`module-default.sh`, `module-lite-hevc.sh`, `module-lite.sh`
+    # 创建软链接 module.sh 指向 module-lite-hevc.sh
+    ln -s module-lite-hevc.sh module.sh
+
+    cd ..
+    cd ios
+    sh compile-ffmpeg.sh clean
+二.下载 ffmpeg
+    ./init-ios.sh
+三.添加 https 支持
+  # 获取 openssl 并初始化
+  ./init-ios-openssl.sh
+
+  cd ios
+
+  # 在模块文件中添加一行配置 以启用 openssl 组件
+  echo 'export COMMON_FF_CFG_FLAGS="$COMMON_FF_CFG_FLAGS --enable-openssl"' >> ../config/module.sh
+
+  ./compile-ffmpeg.sh clean
+四.编译ffmpeg
+  # 如果下一步提示错误`xcrun: error: SDK "iphoneos" cannot be located`, 请执行`sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/`, 再重新执行下一步
+
+  # 编译openssl, 如果不需要https可以跳过这一步
+  cd ios
+  ./compile-openssl.sh all
+
+  ./compile-ffmpeg.sh clean
+  ./compile-ffmpeg.sh all //编译
+
+   如果报错
+    AS  libavcodec/arm/aacpsdsp_neon.o
+    ./libavutil/arm/asm.S:50:9: error: unknown directive
+    .arch armv7-a
+    ^
+    make: *** [libavcodec/arm/aacpsdsp_neon.o] Error 1
+    make: *** Waiting for unfinished jobs....
+    最新的 Xcode 已经弱化了对 32 位的支持, 解决方法:
+    在 compile-ffmpeg.sh 中删除 armv7 , 修改如:
+    FF_ALL_ARCHS_IOS8_SDK="arm64 i386 x86_64"
+    再重新执行出现错误的命令: ./compile-ffmpeg.sh all
+
+五.编译 ijkplayer库，合并库
+  lipo -create “debug——path” “release-path” -output
+

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (IJKFFOptions *)getDefaultIJKFFOptions;
 
 /** ijk 设置示例 */
-+ (void)getIJKOptions;
++ (IJKFFOptions *)getIJKOptions;
 @end
 
 NS_ASSUME_NONNULL_END

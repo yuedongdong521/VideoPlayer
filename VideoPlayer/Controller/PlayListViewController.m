@@ -11,6 +11,7 @@
 #import "VideoPlayerViewController.h"
 #import "VideoListMode.h"
 #import "ListTableViewCell.h"
+#import "PlayerViewController.h"
 
 #define VideoURLArr  @"VideoURLArr"
 
@@ -97,6 +98,7 @@
          CCTV5+高清：http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8
          CCTV6高清：http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8
          苹果提供的测试源（点播）：http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8
+         http://7xo69d.com1.z0.glb.clouddn.com/ishowapp/2017/0926/1506391606-100001407-FsH1BE6rJUeamdODejYOSOgbgZxm-0647
          */
         mutableArry = [NSMutableArray arrayWithArray:
   @[@{@"name":@"香港卫视",@"playerURL":@"http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8"},
@@ -105,7 +107,7 @@
   @{@"name":@"CCTV5高清",@"playerURL":@"http://ivi.bupt.edu.cn/hls/cctv5hd.m3u8"},
   @{@"name":@"CCTV5+高清",@"playerURL":@"http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8"},
   @{@"name":@"CCTV6高清",@"playerURL":@"http://ivi.bupt.edu.cn/hls/cctv6hd.m3u8"},
-  @{@"name":@"苹果提供的测试源（点播）",@"playerURL":@"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8"}]];
+  @{@"name":@"苹果提供的测试源(点播)",@"playerURL":@"http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8"}]];
         [defaults setValue:mutableArry forKey:VideoURLArr];
     }
     _mtbArray = [NSMutableArray array];
@@ -140,7 +142,12 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     VideoListMode *mode = _mtbArray[indexPath.row];
+  if (_isIJKPlayer) {
+    PlayerViewController *playerVC = [[PlayerViewController alloc] initWithVideoUrl:[NSURL URLWithString:mode.playerURL]];
+    [self.navigationController pushViewController:playerVC animated:YES];
+  } else {
     [self pushVideoPlayerControllerForPlayerPath:mode.playerURL ForTitle:mode.name];
+  }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

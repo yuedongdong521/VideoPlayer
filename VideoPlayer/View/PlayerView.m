@@ -19,7 +19,9 @@
 @property (nonatomic, strong) UIImageView *bgImageView;
 
 @property (nonatomic, strong) UIView *titleView;
+@property (nonatomic, strong) CAGradientLayer *titleLayer;
 @property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) CAGradientLayer *bottomLayer;
 
 @property (nonatomic, strong) UIProgressView *progressView;
 @property (nonatomic, strong) UILabel *timeLabel;
@@ -33,6 +35,8 @@
 @property (nonatomic, assign) BOOL hiddenView;
 @property (nonatomic, strong) MBProgressHUD *hud;
 
+@property (nonatomic, assign) CGFloat lastTime;
+
 
 
 
@@ -44,6 +48,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _lastTime = 0.0;
         UIImageView *bgView = [[UIImageView alloc] initWithFrame:self.bounds];
         bgView.contentMode = UIViewContentModeScaleAspectFit;
         if ([path hasPrefix:@"http"]) {
@@ -99,6 +104,16 @@
     _player = player;
     _playerLayer = playerLayer;
     
+    [self showHUD];
+}
+
+- (void)showHUD
+{
+    if (_hud) {
+        [_hud hideAnimated:NO];
+        [_hud removeFromSuperview];
+        _hud = nil;
+    }
     _hud = [MBProgressHUD showHUDAddedTo:_bgImageView animated:YES];
     _hud.label.text = @"努力加载中...";
     _hud.mode = MBProgressHUDModeIndeterminate;
@@ -106,13 +121,14 @@
 }
 
 
-
 - (void)resetFrame
 {
     _bgImageView.frame = self.bounds;
     _playerLayer.frame = _bgImageView.bounds;
     _titleView.frame = CGRectMake(0, 0, self.bounds.size.width, 64);
+    _titleLayer.frame = _titleView.bounds;
     _bottomView.frame = CGRectMake(0, self.bounds.size.height - 50, self.bounds.size.width, 50);
+    _bottomLayer.frame = _bottomView.bounds;
     _finishBtn.center = self.center;
     
     if (ScreenWidth > ScreenHeight) {
@@ -168,16 +184,18 @@
         NSTimeInterval loadedTime = [self availableDurationWithplayerItem:playerItem];
         NSLog(@"缓冲进度 %f", loadedTime);
         NSTimeInterval playTime = CMTimeGetSeconds(_player.currentTime);//_player.currentTime
-        if (playTime >= loadedTime) {
-            [_hud showAnimated:YES];
+        if (playTime == _lastTime) {
+            if (_hud.alpha == 0) {
+                [self showHUD];
+            }
         } else {
             [_hud hideAnimated:YES];
         }
+        _lastTime = playTime;
         
     }else if ([keyPath isEqualToString:@"status"]){
-        
+        [_hud hideAnimated:YES];
         if (playerItem.status == AVPlayerItemStatusReadyToPlay){
-            [_hud hideAnimated:YES];
             NSLog(@"playerItem is ready");
             [self playBtnAction];
         } else {
@@ -213,6 +231,16 @@
     _titleView = [[UIView alloc] init];
     _titleView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
     _titleView.frame = CGRectMake(0, 0, self.bounds.size.width, 64);
+    
+    CAGradientLayer *titleLayer = [CAGradientLayer layer];
+    titleLayer.frame = _titleView.bounds;
+    titleLayer.startPoint = CGPointMake(0, 1);
+    titleLayer.endPoint = CGPointMake(0, 0);
+    titleLayer.locations = @[@(0), @(1)];
+    titleLayer.colors = @[(id)YColor(0, 0).CGColor, (id)[UIColor colorWithWhite:0.5 alpha:0.5].CGColor];
+     _titleLayer = titleLayer;
+    [_titleView.layer addSublayer:_titleLayer];
+    
     [self addSubview:_titleView];
     
     UIButton *backBtn = [self creatButtonAction:@selector(backAction) Titile:@"返回"];
@@ -236,6 +264,16 @@
     _bottomView = [[UIView alloc] init];
     _bottomView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
     _bottomView.frame = CGRectMake(0, self.bounds.size.height - 50, self.bounds.size.width, 50);
+    
+    CAGradientLayer *bottomLayer = [CAGradientLayer layer];
+    bottomLayer.startPoint = CGPointMake(0, 0);
+    bottomLayer.endPoint = CGPointMake(0, 1);
+    bottomLayer.locations = @[@(0), @(1)];
+    bottomLayer.colors = @[(id)YColor(0, 0).CGColor, (id)[UIColor colorWithWhite:0.5 alpha:0.5].CGColor];
+    bottomLayer.frame = _bottomView.bounds;
+    _bottomLayer = bottomLayer;
+    [_bottomView.layer addSublayer:_bottomLayer];
+    
     [self addSubview:_bottomView];
 
     

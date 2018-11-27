@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayListViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isIJKPlayer;
 @end
