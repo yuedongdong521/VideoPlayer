@@ -25,7 +25,6 @@
 		60B47DEA1FD7CAE200E65992 /* EditVideoURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B47DE91FD7CAE200E65992 /* EditVideoURLViewController.m */; };
 		8767AA678EC26C699FBC42E5 /* libPods-VideoPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9909BEC6E315357AC5649B /* libPods-VideoPlayer.a */; };
 		ED0F549321A6B07F00F8A88F /* ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0F549221A6B07F00F8A88F /* ParentViewController.m */; };
-		ED2CA77E21A6A5B70099EB73 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA77D21A6A5B70099EB73 /* IJKMediaFramework.framework */; };
 		ED2CA78021A6A5D70099EB73 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA77F21A6A5D70099EB73 /* libc++.tbd */; };
 		ED2CA78221A6A60F0099EB73 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA78121A6A60F0099EB73 /* VideoToolbox.framework */; };
 		ED2CA78421A6A6170099EB73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA78321A6A6170099EB73 /* QuartzCore.framework */; };
@@ -38,12 +37,6 @@
 		ED2CA79221A6A66B0099EB73 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA79121A6A66B0099EB73 /* CoreMedia.framework */; };
 		ED2CA79421A6A67A0099EB73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA79321A6A67A0099EB73 /* CoreGraphics.framework */; };
 		ED2CA79621A6A6900099EB73 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2CA79521A6A6900099EB73 /* AudioToolbox.framework */; };
-		ED2CA79E21A6A84E0099EB73 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2CA79D21A6A84E0099EB73 /* PlayerViewController.m */; };
-		ED2CA7A121A6A85C0099EB73 /* IJKFFOptionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2CA7A021A6A85C0099EB73 /* IJKFFOptionsModel.m */; };
-		ED412BD521AD104B00DB1112 /* install_ijkFramework in Resources */ = {isa = PBXBuildFile; fileRef = ED412BD421AD104B00DB1112 /* install_ijkFramework */; };
-		ED53056D21A949D500586CB0 /* IJKOptionsSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53056C21A949D500586CB0 /* IJKOptionsSettingView.m */; };
-		ED53057021A94BD900586CB0 /* ChoseVideoBitRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED53056F21A94BD900586CB0 /* ChoseVideoBitRateView.m */; };
-		EDA047BD21A7933C0000825C /* PlayerControllView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA047BC21A7933C0000825C /* PlayerControllView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +74,6 @@
 		D2F6310A377DEBFA01227879 /* Pods-VideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0F549121A6B07F00F8A88F /* ParentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentViewController.h; sourceTree = "<group>"; };
 		ED0F549221A6B07F00F8A88F /* ParentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentViewController.m; sourceTree = "<group>"; };
-		ED2CA77D21A6A5B70099EB73 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		ED2CA77F21A6A5D70099EB73 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		ED2CA78121A6A60F0099EB73 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		ED2CA78321A6A6170099EB73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -94,17 +86,6 @@
 		ED2CA79121A6A66B0099EB73 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		ED2CA79321A6A67A0099EB73 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		ED2CA79521A6A6900099EB73 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		ED2CA79C21A6A84E0099EB73 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
-		ED2CA79D21A6A84E0099EB73 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
-		ED2CA79F21A6A85C0099EB73 /* IJKFFOptionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IJKFFOptionsModel.h; sourceTree = "<group>"; };
-		ED2CA7A021A6A85C0099EB73 /* IJKFFOptionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IJKFFOptionsModel.m; sourceTree = "<group>"; };
-		ED412BD421AD104B00DB1112 /* install_ijkFramework */ = {isa = PBXFileReference; lastKnownFileType = text; path = install_ijkFramework; sourceTree = "<group>"; };
-		ED53056B21A949D500586CB0 /* IJKOptionsSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IJKOptionsSettingView.h; sourceTree = "<group>"; };
-		ED53056C21A949D500586CB0 /* IJKOptionsSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IJKOptionsSettingView.m; sourceTree = "<group>"; };
-		ED53056E21A94BD900586CB0 /* ChoseVideoBitRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoseVideoBitRateView.h; sourceTree = "<group>"; };
-		ED53056F21A94BD900586CB0 /* ChoseVideoBitRateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoseVideoBitRateView.m; sourceTree = "<group>"; };
-		EDA047BB21A7933C0000825C /* PlayerControllView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerControllView.h; sourceTree = "<group>"; };
-		EDA047BC21A7933C0000825C /* PlayerControllView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerControllView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +105,6 @@
 				ED2CA78421A6A6170099EB73 /* QuartzCore.framework in Frameworks */,
 				ED2CA78221A6A60F0099EB73 /* VideoToolbox.framework in Frameworks */,
 				ED2CA78021A6A5D70099EB73 /* libc++.tbd in Frameworks */,
-				ED2CA77E21A6A5B70099EB73 /* IJKMediaFramework.framework in Frameworks */,
 				60B47DE51FD77F9F00E65992 /* AVFoundation.framework in Frameworks */,
 				8767AA678EC26C699FBC42E5 /* libPods-VideoPlayer.a in Frameworks */,
 			);
@@ -210,7 +190,6 @@
 		60B47DC61FD77DCF00E65992 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				ED2CA77B21A6A5590099EB73 /* IJKPlayer */,
 				6059B2791FE26B010052560A /* Tools */,
 				60004C161FDA65490012FCEF /* Mode */,
 				60004C151FDA65240012FCEF /* View */,
@@ -256,57 +235,6 @@
 				3B9111F691614834E75E435E /* Pods-VideoPlayer.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		ED2CA77B21A6A5590099EB73 /* IJKPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				EDA047BA21A792940000825C /* view */,
-				ED2CA79821A6A7A00099EB73 /* model */,
-				ED2CA79721A6A77C0099EB73 /* Controller */,
-				ED2CA77C21A6A57E0099EB73 /* framework */,
-			);
-			path = IJKPlayer;
-			sourceTree = "<group>";
-		};
-		ED2CA77C21A6A57E0099EB73 /* framework */ = {
-			isa = PBXGroup;
-			children = (
-				ED2CA77D21A6A5B70099EB73 /* IJKMediaFramework.framework */,
-				ED412BD421AD104B00DB1112 /* install_ijkFramework */,
-			);
-			path = framework;
-			sourceTree = "<group>";
-		};
-		ED2CA79721A6A77C0099EB73 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				ED2CA79C21A6A84E0099EB73 /* PlayerViewController.h */,
-				ED2CA79D21A6A84E0099EB73 /* PlayerViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		ED2CA79821A6A7A00099EB73 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				ED2CA79F21A6A85C0099EB73 /* IJKFFOptionsModel.h */,
-				ED2CA7A021A6A85C0099EB73 /* IJKFFOptionsModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		EDA047BA21A792940000825C /* view */ = {
-			isa = PBXGroup;
-			children = (
-				EDA047BB21A7933C0000825C /* PlayerControllView.h */,
-				EDA047BC21A7933C0000825C /* PlayerControllView.m */,
-				ED53056E21A94BD900586CB0 /* ChoseVideoBitRateView.h */,
-				ED53056F21A94BD900586CB0 /* ChoseVideoBitRateView.m */,
-				ED53056B21A949D500586CB0 /* IJKOptionsSettingView.h */,
-				ED53056C21A949D500586CB0 /* IJKOptionsSettingView.m */,
-			);
-			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,7 +296,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED412BD521AD104B00DB1112 /* install_ijkFramework in Resources */,
 				6044041F1FD7E569000DA624 /* demo.mp4 in Resources */,
 				60B47DD41FD77DCF00E65992 /* LaunchScreen.storyboard in Resources */,
 				60B47DD11FD77DCF00E65992 /* Assets.xcassets in Resources */,
@@ -408,13 +335,8 @@
 				60B47DCC1FD77DCF00E65992 /* ViewController.m in Sources */,
 				ED0F549321A6B07F00F8A88F /* ParentViewController.m in Sources */,
 				60B47DDF1FD77E5700E65992 /* VideoPlayerViewController.m in Sources */,
-				ED53057021A94BD900586CB0 /* ChoseVideoBitRateView.m in Sources */,
 				60B47DEA1FD7CAE200E65992 /* EditVideoURLViewController.m in Sources */,
-				ED53056D21A949D500586CB0 /* IJKOptionsSettingView.m in Sources */,
 				60004C191FDA65800012FCEF /* VideoListMode.m in Sources */,
-				EDA047BD21A7933C0000825C /* PlayerControllView.m in Sources */,
-				ED2CA7A121A6A85C0099EB73 /* IJKFFOptionsModel.m in Sources */,
-				ED2CA79E21A6A84E0099EB73 /* PlayerViewController.m in Sources */,
 				60B47DD71FD77DCF00E65992 /* main.m in Sources */,
 				6059B2781FE26AEE0052560A /* MyTools.m in Sources */,
 				604597051FD93CBB0082A263 /* PlayListViewController.m in Sources */,
@@ -574,7 +496,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
-				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -602,7 +523,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
-				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Release;
 		};

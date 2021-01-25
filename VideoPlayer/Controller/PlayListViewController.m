@@ -11,7 +11,8 @@
 #import "VideoPlayerViewController.h"
 #import "VideoListMode.h"
 #import "ListTableViewCell.h"
-#import "PlayerViewController.h"
+// TODO: ijkplayer 首先 Add IJKPlayer文件夹，根据文件夹说明文档安装ijkplayer sdk
+//#import "PlayerViewController.h"
 
 #define VideoURLArr  @"VideoURLArr"
 
@@ -143,8 +144,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     VideoListMode *mode = _mtbArray[indexPath.row];
   if (_isIJKPlayer) {
-    PlayerViewController *playerVC = [[PlayerViewController alloc] initWithVideoUrl:[NSURL URLWithString:mode.playerURL]];
-    [self.navigationController pushViewController:playerVC animated:YES];
+      // TODO: ijkplayer
+//    PlayerViewController *playerVC = [[PlayerViewController alloc] initWithVideoUrl:[NSURL URLWithString:mode.playerURL]];
+//    [self.navigationController pushViewController:playerVC animated:YES];
   } else {
     [self pushVideoPlayerControllerForPlayerPath:mode.playerURL ForTitle:mode.name];
   }
